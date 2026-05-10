@@ -18,8 +18,8 @@
 body {
     background-color: var(--bg);
     color: var(--text-main);
-    overflow-x: hidden;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* --- ANIMASI --- */
@@ -28,14 +28,11 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-main { animation: fadeInUp 0.8s ease-out forwards; }
-
 .animate-fade { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
 .delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
+.delay-2 { animation-delay: 0.5s; }
 
-/* --- BACKGROUND & NAV --- */
+/* --- NAV & BG --- */
 .background-blob {
     position: fixed;
     top: -100px;
@@ -62,10 +59,7 @@ nav {
     margin-left: 30px;
     font-size: 0.9rem;
     transition: 0.3s;
-    position: relative;
 }
-
-.nav-links a:hover { color: var(--text-main); }
 
 .contact-pill {
     background: var(--primary);
@@ -75,47 +69,111 @@ nav {
     font-weight: 600;
 }
 
-/* --- LAYOUT ABOUT (FOTO KIRI, TEKS KANAN) --- */
-.about-flex {
+/* --- ABOUT LAYOUT --- */
+.about-container {
+    padding: 0 10% 80px;
+}
+
+.glass-section {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.badge {
+    background: rgba(74, 222, 128, 0.1);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* FLEXBOX LAYOUT (FOTO KIRI, TEKS KANAN) */
+.about-flex-layout {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
     gap: 50px;
-    margin-top: 50px;
     flex-wrap: wrap;
 }
 
-.about-left { flex: 1; max-width: 280px; }
-.about-right { flex: 2; min-width: 300px; }
+.about-left-content {
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+}
 
-.about-img-small {
+.about-frame-img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     border: 2px solid var(--primary);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
 
-.performance-box {
+.about-frame-img:hover { transform: scale(1.02); }
+
+.about-right-content {
+    flex: 2;
+    min-width: 350px;
+}
+
+.performance-card {
     background: #161f1e;
-    padding: 35px;
-    border-radius: 12px;
-    border-left: 4px solid var(--primary);
-    text-align: left;
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 5px solid var(--primary);
 }
 
-/* --- HERO & GRID --- */
-.hero { text-align: center; padding: 80px 10%; }
-.profile-img { width: 160px; height: 160px; border-radius: 50%; border: 2px solid var(--primary); margin-bottom: 25px; }
-.glass-section { background: var(--glass); border: 1px solid rgba(255, 255, 255, 0.05); margin: 40px 10%; padding: 60px; border-radius: 16px; text-align: center; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 10%; }
-.card { background: #161f1e; padding: 40px; border-radius: 12px; transition: 0.4s; }
-.card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
-/* --- FOOTER & CONTACT --- */
-.qr-section { text-align: center; padding: 60px 10%; }
-.qr-img { width: 220px; border-radius: 12px; border: 1px solid var(--primary); margin-top: 20px; }
-footer { text-align: center; padding: 60px; color: #475569; font-size: 0.8rem; }
-
-@media (max-width: 768px) {
-    .about-flex { flex-direction: column; text-align: center; }
+.performance-card h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
 }
+
+.performance-card ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.performance-card li {
+    margin-bottom: 20px;
+}
+
+.performance-card li strong {
+    display: block;
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+.performance-card li span {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.quote-performance {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .about-flex-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .performance-card {
+        text-align: left;
+    }
+}
+
+footer { text-align: center; padding: 40px; color: #475569; font-size: 0.8rem; }
