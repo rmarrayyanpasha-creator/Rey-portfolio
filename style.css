@@ -1,4 +1,5 @@
 :root {
+    /* Tema Warna Forest Green & Slate Grey */
     --primary: #2d5a27; 
     --secondary: #1e3a1a; 
     --accent: #4ade80; 
@@ -23,15 +24,11 @@ body {
     scroll-behavior: smooth;
 }
 
-/* --- ANIMASI TRANSISI HALAMAN --- */
-main {
-    animation: transitionIn 0.8s ease-out;
-}
-
-@keyframes transitionIn {
+/* --- ANIMASI UTAMA --- */
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -39,7 +36,23 @@ main {
     }
 }
 
-/* --- BACKGROUND --- */
+main {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Class khusus untuk elemen yang muncul bergantian */
+.animate-fade {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+
+/* --- CAHAYA LATAR --- */
 .background-blob {
     position: fixed;
     top: -100px;
@@ -75,7 +88,6 @@ nav {
     position: relative;
 }
 
-/* Animasi Garis Bawah pada Menu */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -87,13 +99,8 @@ nav {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a:hover {
-    color: var(--text-main);
-}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--text-main); }
 
 .contact-pill {
     background: var(--primary);
@@ -123,13 +130,10 @@ nav {
     object-fit: cover;
     border: 2px solid var(--primary);
     margin-bottom: 25px;
-    /* Animasi Hover Foto */
-    transition: transform 0.5s ease;
+    transition: 0.5s ease;
 }
 
-.profile-img:hover {
-    transform: scale(1.05);
-}
+.profile-img:hover { transform: scale(1.05); }
 
 .badge {
     background: var(--glass);
@@ -141,17 +145,13 @@ nav {
     font-size: 0.75rem;
     margin-bottom: 20px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
+h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
 h1 span { color: var(--primary); }
 
-/* --- GLASS SECTION (About) --- */
+/* --- ABOUT SECTION --- */
 .glass-section {
     background: var(--glass);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -161,7 +161,27 @@ h1 span { color: var(--primary); }
     text-align: center;
 }
 
-/* --- PROJECTS GRID --- */
+.about-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.performance-box {
+    background: #161f1e;
+    padding: 40px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    text-align: left;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* --- PROJECTS --- */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -177,29 +197,19 @@ h1 span { color: var(--primary); }
     transition: 0.4s ease;
 }
 
-/* Animasi Hover Kartu */
 .card:hover {
     border-color: var(--primary);
     transform: translateY(-10px);
-    background: #1a2625;
 }
 
-/* --- CONTACT / QR --- */
-.qr-section {
-    text-align: center;
-    padding: 60px 10%;
-}
-
+/* --- CONTACT --- */
+.qr-section { text-align: center; padding: 60px 10%; }
 .qr-img {
     width: 220px;
     border-radius: 12px;
     margin-top: 30px;
     border: 1px solid var(--primary);
     transition: 0.3s;
-}
-
-.qr-img:hover {
-    transform: rotate(2deg) scale(1.02);
 }
 
 /* --- FOOTER --- */
