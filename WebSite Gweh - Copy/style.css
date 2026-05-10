@@ -1,0 +1,174 @@
+:root {
+    /* Perubahan warna ke tema Hijau */
+    --primary: #2ecc71; /* Hijau Emerald */
+    --secondary: #27ae60; /* Hijau Tua */
+    --accent: #00ff88; /* Hijau Neon */
+    --bg: #06120c; /* Hitam dengan sedikit tint hijau tua */
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: #f0fff4; /* Putih dengan sedikit tint hijau */
+    overflow-x: hidden;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Efek Cahaya Hijau di Background */
+.background-blob {
+    position: fixed;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, transparent 70%);
+    z-index: -1;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10%;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo span { color: var(--accent); }
+
+.nav-links a {
+    text-decoration: none;
+    color: #a7f3d0;
+    margin-left: 30px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.contact-pill {
+    background: var(--accent);
+    color: #06120c !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contact-pill:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 10% 60px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.badge {
+    background: var(--glass);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    color: var(--accent);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    background: linear-gradient(to right, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* About Section */
+.glass-section {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(46, 204, 113, 0.1);
+    margin: 50px 10%;
+    padding: 50px;
+    border-radius: 24px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* My Client & Projects Section */
+#clients {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+#clients h2 {
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); 
+    gap: 25px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--glass);
+    border: 1px solid rgba(46, 204, 113, 0.1);
+    padding: 35px;
+    border-radius: 20px;
+    text-align: left;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.card:hover {
+    background: rgba(46, 204, 113, 0.05);
+    transform: translateY(-12px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #6ee7b7;
+    font-size: 0.8rem;
+}
+
+/* Keyframes Animasi */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
