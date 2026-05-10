@@ -19,7 +19,6 @@ body {
     background-color: var(--bg);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 /* --- ANIMASI --- */
@@ -27,12 +26,11 @@ body {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 .animate-fade { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.5s; }
 
-/* --- NAV & BG --- */
+/* --- NAV & BACKGROUND --- */
 .background-blob {
     position: fixed;
     top: -100px;
@@ -57,8 +55,6 @@ nav {
     text-decoration: none;
     color: var(--text-dim);
     margin-left: 30px;
-    font-size: 0.9rem;
-    transition: 0.3s;
 }
 
 .contact-pill {
@@ -66,114 +62,100 @@ nav {
     color: white !important;
     padding: 10px 25px;
     border-radius: 8px;
-    font-weight: 600;
 }
 
-/* --- ABOUT LAYOUT --- */
-.about-container {
-    padding: 0 10% 80px;
+/* --- TAMPILAN ABOUT ME (LAYOUT BARU) --- */
+.about-wrapper {
+    max-width: 1100px; /* Menjaga agar tidak terlalu lebar */
+    margin: 50px auto;
+    padding: 0 5%;
 }
 
-.glass-section {
+.intro-box {
     background: var(--glass);
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 40px;
-    border-radius: 16px;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.badge {
-    background: rgba(74, 222, 128, 0.1);
-    color: var(--accent);
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-/* FLEXBOX LAYOUT (FOTO KIRI, TEKS KANAN) */
-.about-flex-layout {
-    display: flex;
-    align-items: flex-start;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.about-left-content {
-    flex: 1;
-    min-width: 250px;
-    max-width: 320px;
-}
-
-.about-frame-img {
-    width: 100%;
     border-radius: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-split-section {
+    display: flex;
+    align-items: flex-start; /* Sejajar dari atas */
+    gap: 40px;
+    flex-wrap: wrap; /* Agar bisa turun di HP */
+}
+
+/* Bagian Kiri (Foto) */
+.about-left-side {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.about-left-side img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
     border: 2px solid var(--primary);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    transition: 0.3s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-.about-frame-img:hover { transform: scale(1.02); }
-
-.about-right-content {
-    flex: 2;
-    min-width: 350px;
+/* Bagian Kanan (Teks) */
+.about-right-side {
+    flex: 1.5;
+    min-width: 320px;
 }
 
-.performance-card {
+.perf-card {
     background: #161f1e;
     padding: 40px;
-    border-radius: 20px;
-    border-left: 5px solid var(--primary);
+    border-radius: 24px;
+    border-left: 6px solid var(--primary);
 }
 
-.performance-card h3 {
+.perf-card h3 {
     color: var(--primary);
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-.performance-card ul {
+.perf-card ul {
     list-style: none;
-    margin: 20px 0;
 }
 
-.performance-card li {
-    margin-bottom: 20px;
+.perf-card li {
+    margin-bottom: 25px;
 }
 
-.performance-card li strong {
+.perf-card li strong {
     display: block;
-    color: var(--text-main);
-    font-size: 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
 }
 
-.performance-card li span {
+.perf-card li p {
     color: var(--text-dim);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
-.quote-performance {
+.perf-footer {
     margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
     font-style: italic;
     color: var(--accent);
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 15px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .about-flex-layout {
+/* RESPONSIVE UNTUK HP */
+@media (max-width: 850px) {
+    .about-split-section {
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
-    .performance-card {
-        text-align: left;
+    .about-left-side {
+        max-width: 100%;
     }
 }
-
-footer { text-align: center; padding: 40px; color: #475569; font-size: 0.8rem; }
