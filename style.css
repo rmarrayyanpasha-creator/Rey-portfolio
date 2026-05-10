@@ -1,9 +1,8 @@
 :root {
-    /* Warna baru: Hijau Hutan yang lebih kalem dan Slate Grey */
-    --primary: #2d5a27; /* Deep Forest Green */
+    --primary: #2d5a27; 
     --secondary: #1e3a1a; 
-    --accent: #4ade80; /* Hijau lembut untuk detail kecil */
-    --bg: #0f1716; /* Background sangat gelap dengan tint hijau */
+    --accent: #4ade80; 
+    --bg: #0f1716; 
     --glass: rgba(255, 255, 255, 0.03);
     --text-main: #e2e8f0;
     --text-dim: #94a3b8;
@@ -24,7 +23,23 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Efek Cahaya Latar yang Lebih Redup */
+/* --- ANIMASI TRANSISI HALAMAN --- */
+main {
+    animation: transitionIn 0.8s ease-out;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- BACKGROUND --- */
 .background-blob {
     position: fixed;
     top: -100px;
@@ -35,7 +50,7 @@ body {
     z-index: -1;
 }
 
-/* Navigasi */
+/* --- NAVIGASI --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -47,7 +62,6 @@ nav {
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: -1px;
-    color: var(--text-main);
 }
 
 .logo span { color: var(--primary); }
@@ -58,17 +72,34 @@ nav {
     margin-left: 30px;
     font-size: 0.9rem;
     transition: 0.3s;
+    position: relative;
+}
+
+/* Animasi Garis Bawah pada Menu */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--text-main);
 }
 
 .contact-pill {
     background: var(--primary);
     color: white !important;
     padding: 10px 25px;
-    border-radius: 8px; /* Kotak sedikit tumpul agar lebih formal */
+    border-radius: 8px;
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -76,9 +107,10 @@ nav {
 .contact-pill:hover {
     background: var(--secondary);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Hero Section */
+/* --- HERO SECTION --- */
 .hero {
     text-align: center;
     padding: 80px 10% 40px;
@@ -91,7 +123,12 @@ nav {
     object-fit: cover;
     border: 2px solid var(--primary);
     margin-bottom: 25px;
-    filter: grayscale(20%); /* Memberikan kesan estetik kalem */
+    /* Animasi Hover Foto */
+    transition: transform 0.5s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
 }
 
 .badge {
@@ -104,27 +141,17 @@ nav {
     font-size: 0.75rem;
     margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 h1 {
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 20px;
-    font-weight: 700;
 }
 
-h1 span {
-    color: var(--primary);
-}
+h1 span { color: var(--primary); }
 
-p {
-    color: var(--text-dim);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Glass Section (Halaman About) */
+/* --- GLASS SECTION (About) --- */
 .glass-section {
     background: var(--glass);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -134,13 +161,7 @@ p {
     text-align: center;
 }
 
-/* Project Grid */
-.section-title {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 2rem;
-}
-
+/* --- PROJECTS GRID --- */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -153,20 +174,17 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.03);
     padding: 40px;
     border-radius: 12px;
-    transition: 0.3s;
+    transition: 0.4s ease;
 }
 
+/* Animasi Hover Kartu */
 .card:hover {
     border-color: var(--primary);
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    background: #1a2625;
 }
 
-.card h3 {
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
-/* QR Section (Halaman Contact) */
+/* --- CONTACT / QR --- */
 .qr-section {
     text-align: center;
     padding: 60px 10%;
@@ -176,11 +194,15 @@ p {
     width: 220px;
     border-radius: 12px;
     margin-top: 30px;
-    opacity: 0.9;
     border: 1px solid var(--primary);
+    transition: 0.3s;
 }
 
-/* Footer */
+.qr-img:hover {
+    transform: rotate(2deg) scale(1.02);
+}
+
+/* --- FOOTER --- */
 footer {
     text-align: center;
     padding: 60px;
